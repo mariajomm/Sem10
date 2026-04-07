@@ -4,7 +4,7 @@ void setup(){
 size(1000, 1000);
   // inicializamos el objeto
   //                     tempC,           tempPosX,tempPosY, tempVel
-  miMariquita = new Mariquita (color(80, 60, 90), 500,     500,     5);
+  miMariquita = new Mariquita (color(80, 60, 90), 0,     500,     5);
 
 }
 void draw (){
@@ -42,8 +42,8 @@ class Mariquita{
     fill(0);
     circle(posX - 20, posY - 10, 15);
     circle(posX + 20, posY - 10, 15);
-    circle(posX - 15, posY + 10, 20);
-    circle(posX + 15, posY + 10, 20);
+    circle(posX - 15, posY + 10, 25);
+    circle(posX + 15, posY + 10, 25);
     
   }
   void correr() {
