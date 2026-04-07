@@ -44,6 +44,10 @@ class Mariquita{
     circle(posX + 20, posY - 10, 15);
     circle(posX - 15, posY + 10, 20);
     circle(posX + 15, posY + 10, 20);
+    //alas
+    fill(200,0,0);
+    ellipse(posX - 15, posY, 30, 50);
+    ellipse(posX + 15, posY, 30, 50);
     
   }
   void correr() {
