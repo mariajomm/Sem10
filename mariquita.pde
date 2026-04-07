@@ -4,7 +4,7 @@ void setup(){
 size(1000, 1000);
   // inicializamos el objeto
   //                     tempC,           tempPosX,tempPosY, tempVel
-  miMariquita = new Mariquita (color(220, 20, 60), 500,     500,     5);
+  miMariquita = new Mariquita (color(80, 60, 90), 500,     500,     5);
 
 }
 void draw (){
