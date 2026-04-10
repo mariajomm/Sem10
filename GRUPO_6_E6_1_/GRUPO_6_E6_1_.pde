@@ -10,6 +10,12 @@ int borradorY = 140;
 int limpiarX = 10;
 int limpiarY = 220;
 
+int rectanguloX = 10;
+int rectanguloY=300;
+float inicioX;
+float inicioY;
+
+
 void setup() {
   size(800, 600);
   background(200);
@@ -60,6 +66,15 @@ void dibujarBotones() {
    line(limpiarX + 15, limpiarY + 15, limpiarX + 45, limpiarY + 45);
    line(limpiarX + 45, limpiarY + 15, limpiarX + 15, limpiarY + 45);
   noStroke();
+   // botón rectángulo
+    fill(220);
+    rect(rectanguloX, rectanguloY, 60, 60);
+
+   // icono rectángulo
+   noFill();
+   stroke(0);
+   strokeWeight(3);
+   rect(rectanguloX + 15, rectanguloY + 20, 30, 20);
 }
 
 // detectar clicks en botones
@@ -84,8 +99,17 @@ void mousePressed() {
   noStroke();
   rect(100, 0, 700, 600);
  }
+ // rectángulo
+if (mouseX > rectanguloX && mouseX < rectanguloX + 60 &&
+    mouseY > rectanguloY && mouseY < rectanguloY + 60) {
+  herramienta = "rectangulo";
 }
-
+ // punto inicial para figura
+if (herramienta.equals("rectangulo") && mouseX > 100) {
+  inicioX = mouseX;
+  inicioY = mouseY;
+}
+}
 // dibujar en el lienzo
 void mouseDragged() {
   // solo dentro del lienzo blanco
@@ -94,13 +118,28 @@ void mouseDragged() {
     if (herramienta.equals("pincel")) {
       stroke(0);
       strokeWeight(5);
+      line(pmouseX, pmouseY, mouseX, mouseY);
     }
     
     if (herramienta.equals("borrador")) {
       stroke(255); //<>//
       strokeWeight(20);
+        line(pmouseX, pmouseY, mouseX, mouseY);
     }
     
-    line(pmouseX, pmouseY, mouseX, mouseY);
+  }
+}
+ void mouseReleased() {
+  
+  if (herramienta.equals("rectangulo") && mouseX > 100) {
+    
+    float ancho = mouseX - inicioX;
+    float alto = mouseY - inicioY;
+    
+    stroke(0);
+    strokeWeight(3);
+    noFill();
+    
+    rect(inicioX, inicioY, ancho, alto);
   }
 }
