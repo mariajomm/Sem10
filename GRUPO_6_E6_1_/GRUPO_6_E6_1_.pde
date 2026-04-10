@@ -7,6 +7,9 @@ int pincelY = 60;
 int borradorX = 10;
 int borradorY = 140;
 
+int limpiarX = 10;
+int limpiarY = 220;
+
 void setup() {
   size(800, 600);
   background(200);
@@ -44,7 +47,18 @@ void dibujarBotones() {
   fill(250, 50, 100);
   stroke(0);
   rect(borradorX + 15, borradorY + 20, 30, 20);
-  
+
+   // botón limpiar
+   fill(220);
+   rect(limpiarX, limpiarY, 60, 60);
+
+   fill(0);
+   stroke(0);
+   strokeWeight(3);
+
+   // icono limpiar (una X)
+   line(limpiarX + 15, limpiarY + 15, limpiarX + 45, limpiarY + 45);
+   line(limpiarX + 45, limpiarY + 15, limpiarX + 15, limpiarY + 45);
   noStroke();
 }
 
@@ -61,6 +75,15 @@ void mousePressed() {
       mouseY > borradorY && mouseY < borradorY + 60) {
     herramienta = "borrador";
   }
+
+  // limpiar lienzo
+  if (mouseX > limpiarX && mouseX < limpiarX + 60 &&
+    mouseY > limpiarY && mouseY < limpiarY + 60) {
+  
+  fill(255);
+  noStroke();
+  rect(100, 0, 700, 600);
+ }
 }
 
 // dibujar en el lienzo
